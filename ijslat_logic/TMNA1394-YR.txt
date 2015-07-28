@@ -1,0 +1,43 @@
+This paper discusses a construction called "persistence lattice" that extends a commutative diagram of vector spaces to a lattice. This lattice, discussed in a previous preprint by two of the authors, satisfies the properties of a Heyting algebra. In particular, it admits an operation called the relative pseudo-complement, which is the main object of study in the present paper.
+
+Unfortunately, there are some serious problems with the paper, which mostly originate in the previous preprint on the persistence lattice construction. While I believe that the problems can be addressed, some of the fundamental assumptions do not hold, and several of the claimed theorems are not valid. Therefore, I recommend against publication of the submission.
+
+The first major flaw lies in the imprecise definition of the persistence lattice, leading the authors to incorrect claims about the properties of the construction. The construction  of the persistence lattice starts with a commutative diagram of vector spaces, i.e., a functor from some indexing poset to a category of vector spaces. The goal of the construction is to extend the diagram using (co)limits to a diagram over a lattice (containing the original indexing poset as a subposet), such that meets and joins form bicartesian squares (both pushout and pullback).
+
+The definition of this extended diagram however is very imprecise. First, the definition of join and meet only constructs a vector space (as a (co)limit), but doesn't discuss how this vector space is integrated into the diagram, in particular, no maps are mentioned. This could easily be fixed, as the maps are part of the (co)limit, but the authors should discuss it explicitly, in particular, whether the join/meet is already part of the diagram. The idea of the construction seems clear to me, but it is not properly defined, which leads to more severe problems later.
+
+One issue with the definition is that the join/meet operations have a target outside of the domain of the operation, the original diagram. But the operations are not stable with respect to extending the domain by joins/meets. This can be seen best in the case of zigzag persistence: initially, most of the vector spaces have no common target, so the meet of two such vector space is trivial. However, after extending the diagram by enough pushouts, new common targets may appear, and so the operations change. In particular, the characterization of meets and joins as (co)limits does not hold, at least not for the original diagram. I'm not sure about the most elegant way to resolve this issue and make the definition sound. It clearly seems possibly, and I strongly encourage the authors to find a way and to be more careful with the definition. It seems that several other problems would have been more evident if the definition were more precise and not glossing over critical details.
+
+
+The second major problem concerns the discussion of multidimensional persistence. Even before giving the general definitions, the meets and joins are defined using min/max indices. While the indices of multi-d persistence indeed form a lattice, it is not true in general that commutative squares are bicartesian, so the pushouts and pullbacks may not be part of the original diagram. But several statements in the paper rely on this assumption. As an easy example, any commutative square of vector spaces is a multidimensional persistence module, but not necessarily bicartesian:
+
+k -> k
+^    ^
+|    |
+0 -> k
+
+
+The title and the artificial connection to logic is also problematic. In general, while the algebraic structure described by the authors is a Heyting algebra, there is no reason to call it a logic. While Heyting algebras play a central role in intuitionistic logic, it is misleading to claim that every Heyting algebra is a logic. Logic is the study of reasoning, and its algebraic objects are truth values. It is not helpful to interpret the vector spaces in the persistence lattice as truth values. While a valid formula in intuitionistic logic holds for any choice of Heyting algebra, this point of view adds no meaningful insight to the discussion of the persistence lattice and distracts from its more interesting aspects. Consequently, the authors should talk about the "relative pseudo-complement" operation instead of the "implication" operation.
+
+
+More minor issues:
+
+The description in Section 4.5 is incomprehensible. In particular, it is unclear how the implication should provide the "most persistent" feature. The implication only returns a vector space, while the "features" in persistent homology are usually identified with elements of some vector space, or with a particular indecomposable submodule in the case of zigzag or 1D persistence. Also, in this section "classes" are mentioned at several places. This terminology is probably coming from persistent homology, but in the setting of this paper homology is just a special case. The discussion of the zigzag case is also completely unclear, in particular the last paragraph.
+
+In Section 3.2, please note that you don't consider an arbitrary diagram, but a commutative diagram. Also, the assumption of finiteness seems to be used at several places. Therefore, it is also confusing that the authors talk about an "infinite distributive law".
+
+The description of the join operation (ii) is incomprehensible. This would certainly be more readable in a formula instead of a textual description.
+
+The sentence "they can be defined in X [...] to an arbitrary family of spaces in the input diagram" is unclear; it involves several undefined symbols. Similarly for the equation after "To analyze the construction of the implication operation consider the colimit [...]".
+
+The claim "For constructive mathematics, the truth of a mathematical statement is a subjective claim corresponding to a mental construction" is not correct. There is no notion of "subjectivity" or "mental construction" in constructive logic.
+
+The statement "Prime is decidable (the proof is the program which decides Prime)" can be a bit misleading; not every notion of program can be considered as a proof. The authors probably refer to the Curry-Howard isomorphism, but this should be mentioned, or maybe that the program is a formula in lambda calculus and not a Turing machine. Also, it should be mentioned what the function Halt(n) is.
+
+In Section 4.2, it is stated that "standard persistence arises in the context of filtrations". While this is true, the filtration is on the topological level, not on the vector space level. A totally ordered diagram of vector spaces is not called a filtration; filtration also means that all maps are inclusions, which is not required at the vector space level. Similarly, the object of interest in multidimensional persistence is not a bifiltration.
+
+In Theorem 4.2, "let X_ij be arbitrary unrelated vector spaces". The indices i,j are not used later. Also, what means "unrelated"?
+
+Remark 4.3 is unclear: what is "the element of maximal uncertainty"?
+
+There are some entries in the bibliography without any reference in the text, e.g., [14,18,19,20,22,24,28,33].
